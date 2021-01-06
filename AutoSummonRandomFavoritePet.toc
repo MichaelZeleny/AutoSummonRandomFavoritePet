@@ -1,7 +1,11 @@
 ## Interface: 90002
-## Title: AutoSummonRandomFavoritePet
-## Notes: This will auto summon a favorite pet
+## Title: Auto Summon Random Favorite Pet
+## Notes: Set them all free!
 ## Author: Gerop
 ## Version: 1.0.0
+## SavedVariables: AutoSummonRandomFavoritePetDB
+
+libs\load_libs.xml
+AutoSummonRandomFavoritePet.xml
 
 
