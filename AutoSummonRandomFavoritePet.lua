@@ -41,7 +41,7 @@ SlashCmdList["AUTO_SUMMON_RANDOM_FAVORITE_PET"] = function(msg)
 end
 
 function wantToSummonNewPet()
-    if IsMounted()  then
+    if IsMounted() or isInvisible() then
         return false
     elseif db.disableSummonInCombat and UnitAffectingCombat("player") then
         return false
@@ -67,4 +67,16 @@ function autoSummonRandomFavoritePet_OnLoad(self)
     for index, value in ipairs(events) do
         self:RegisterEvent(value)
     end
+end
+
+function isInvisible()
+    for i=1,40 do
+        local auraName=UnitAura("player",i)
+        if auraName == nil then
+            return false
+        elseif auraName == 'Dimensional Shifter' or auraName == 'Invisible' or auraName == 'Greater Invisibility' or auraName == 'Invisibility' then
+            return true
+        end
+    end
+    return false
 end
